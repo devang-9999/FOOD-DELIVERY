@@ -1,0 +1,19 @@
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+
+export class FirebaseLogin {
+  @IsString({ message: 'Username must be a string' })
+  @IsNotEmpty({ message: 'Username cannot be empty' })
+  username: string;
+
+  @IsEmail()
+  @IsString({ message: 'Email must be a in a proper format' })
+  @IsNotEmpty({ message: 'Email cannot be empty' })
+  email: string;
+
+  @IsString({ message: 'Password must be a string' })
+  password: string;
+
+  @IsString()
+  @IsNotEmpty({ message: 'Email cannot be empty' })
+  role: 'RESTAURANT OWNER' | 'CUSTOMER';
+}
