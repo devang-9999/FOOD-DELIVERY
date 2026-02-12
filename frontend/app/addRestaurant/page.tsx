@@ -29,15 +29,15 @@ export default function AddProductsPage() {
 
   const { user } = useAppSelector((state) => state.auth);
 
-  useEffect(() => {
-    if (!user) {
-      return router.push("/authentication/login");
-    }
+  // useEffect(() => {
+  //   if (!user) {
+  //     return router.push("/authentication/login");
+  //   }
 
-    if (user.role === "RESTAURANT OWNER") {
-      return router.push("/authentication/login");
-    }
-  }, [router,user]);
+  //   if (user.role === "RESTAURANT OWNER") {
+  //     return router.push("/authentication/login");
+  //   }
+  // }, [router,user]);
 
   const {
     register,

@@ -15,7 +15,7 @@ export default function CartLayout({
   );
 
   useEffect(() => {
-    if (currentUser?.role!=="CUSTOMER" ) router.replace("/authentication/login");
+    if (currentUser?.role!=="RESTAURANT OWNER" ) router.replace("/authentication/login");
   }, [currentUser, router]);
 
   if (!currentUser) return null;

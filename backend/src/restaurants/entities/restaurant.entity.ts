@@ -34,6 +34,8 @@ export class Restaurant {
   @JoinColumn({ name: 'sellerId' })
   seller: Authentication;
 
+  //Wrong
+
   @ManyToOne(() => Authentication, (owner) => owner.restaurant, {
     nullable: true,
     onDelete: 'CASCADE',

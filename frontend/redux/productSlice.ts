@@ -6,13 +6,12 @@ import axios, { AxiosError } from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-
 export interface ProductsPayload {
   name: string;
   description: string;
   category: string;
   price: number;
-  isBanned:boolean;
+  isBanned: boolean;
   stock: number;
   brand: string;
   images: string[];
@@ -28,10 +27,9 @@ interface ProductsState {
   loading: boolean;
   error: string | null;
   total: number;
-  page:number;
+  page: number;
   myProducts: SellerProduct[];
 }
-
 
 const initialState: ProductsState = {
   data: [],
@@ -39,10 +37,9 @@ const initialState: ProductsState = {
   loading: false,
   error: null,
   total: 0,
-   page: 1,
+  page: 1,
   myProducts: [],
 };
-
 
 export const addProductThunk = createAsyncThunk(
   "products/add",
@@ -100,7 +97,6 @@ export const fetchProductsThunk = createAsyncThunk(
     }
   },
 );
-
 
 export const fetchProductByIdThunk = createAsyncThunk(
   "products/fetchById",
@@ -167,19 +163,20 @@ export const updateProductBySellerThunk = createAsyncThunk(
   },
 );
 
-
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {    resetProducts: (state) => {
+  reducers: {
+    resetProducts: (state) => {
       state.data = [];
       state.total = 0;
       state.page = 1;
-    },},
+    },
+  },
   extraReducers: (builder) => {
     builder
 
-.addCase(fetchProductsThunk.pending, (state) => {
+      .addCase(fetchProductsThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -231,5 +228,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const {resetProducts} = productsSlice.actions
+export const { resetProducts } = productsSlice.actions;
 export default productsSlice.reducer;

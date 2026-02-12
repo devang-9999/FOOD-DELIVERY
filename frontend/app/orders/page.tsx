@@ -13,6 +13,10 @@ export default function OrdersPage() {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
+  const IMAGE_BASE_URL =
+    process.env.NEXT_PUBLIC_IMAGE_BASE_URL ||
+    "http://localhost:5000/uploads/dishes";
+
   const { orders, loading } = useAppSelector((state) => state.order);
   console.log("ORDERS FROM REDUX:", orders);
 
@@ -64,7 +68,9 @@ export default function OrdersPage() {
                 key={item.product.id}
                 sx={{ display: "flex", gap: 2, mt: 1 }}
               >
-                <img src={item.product.images[0]} width={80} height={80} />
+                {/* <img src={item.images?.length
+                  ? `${IMAGE_BASE_URL}/${item.images[0]}`
+                  : "/placeholder.png"} width={80} height={80} /> */}
 
                 <Box>
                   <Typography>{item.product.name}</Typography>

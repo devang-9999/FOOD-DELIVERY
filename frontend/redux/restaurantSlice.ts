@@ -41,7 +41,7 @@ export const addRestaurantThunk = createAsyncThunk(
   "restaurant/add",
   async (formData: FormData, { rejectWithValue }) => {
     try {
-      const res = await axios.post(`${API_URL}/restaurant`, formData);
+      const res = await axios.post(`${API_URL}/restaurants`, formData);
       return res.data;
     } catch (error) {
       if (error instanceof AxiosError) {

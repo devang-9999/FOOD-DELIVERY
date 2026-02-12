@@ -1,9 +1,6 @@
-/* eslint-disable prettier/prettier */
-
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Orders } from "./order.entity";
-import { Dish } from "src/dishes/entities/dish.entity";
-
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Orders } from './order.entity';
+import { Dish } from 'src/dishes/entities/dish.entity';
 
 @Entity()
 export class OrderItem {
@@ -19,9 +16,9 @@ export class OrderItem {
   @Column()
   quantity: number;
 
-@Column({
-  type: 'decimal',
-  default: 0,
-})
-price: number;
+  @Column({
+    type: 'decimal',
+    default: 0,
+  })
+  price: number;
 }
